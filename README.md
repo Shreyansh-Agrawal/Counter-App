@@ -1,5 +1,7 @@
 ## Assignment 3
 
+Inspired from https://dribbble.com/shots/9832992-Calories-Counter-mobile-app
+
 <br/>
 Screenshot 1
 <br/>
