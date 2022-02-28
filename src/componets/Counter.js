@@ -6,28 +6,40 @@ import BottomView from './BottomView';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import { useCountContext } from './context/CountContextProvider';
+
 export default function Counter() {
-  const [count, setCount] = useState(756);
+
+  const countContext = useCountContext();
+
+  //const [count, setCount] = useState(756);
 
   const IncrementCount = () => {
-    setCount(count + 1);
+    countContext.setCount(countContext.count+1)
+    //setCount(count + 1);
   };
 
   const DecrementCount = () => {
-    setCount(count - 1);
+    countContext.setCount(countContext.count-1)
+    //setCount(count - 1);
   };
 
   const plus = <Icon  name="add-outline" size={50} color="#000" />
   const minus = <Icon  name="remove-outline" size={50} color="#000" />
+
+
+
   return (
     <LinearGradient  colors={['#AEF419', '#EDD51B', '#FBA921']} style={styles.container}>
       <TopView/>
-      <Text style={styles.counter}>{count}</Text>
+      <Text style={styles.counter}>{countContext.count}</Text>
       <Text style={styles.subText}>CALORIES TODAY</Text>
+
       <View style={{flexDirection: 'row'}}>
         <Button title={plus} onClick={IncrementCount} />
         <Button title={minus} onClick={DecrementCount} />
       </View>
+
       <View style={styles.bar}></View>
       <BottomView/>
     </LinearGradient>
